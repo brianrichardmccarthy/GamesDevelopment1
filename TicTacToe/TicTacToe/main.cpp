@@ -29,8 +29,8 @@ void instructions();
 char askYesNo(string question);
 // int askNumber(string question, int high, int low = 0);
 char humanPiece();
-/* char opponent(char piece);
-void displayBoard(const vector<char>& board);
+char opponent(char piece);
+/* void displayBoard(const vector<char>& board);
 char winner(const vector<char>& board);
 bool isLegal(const vector<char>& board, int move);
 int humanMove(const vector<char>& board, char human);
@@ -101,4 +101,8 @@ char askYesNo(string question) {
 
 char humanPiece() {
     return (askYesNo("Do you want to go first?") == 'y') ? X : O;
+}
+
+char opponent(char piece) {
+    return (piece == X) ? O : X;
 }
