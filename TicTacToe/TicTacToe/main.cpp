@@ -27,9 +27,9 @@ const char NO_ONE = 'N';
 //function prototypes
 void instructions();
 char askYesNo(string question);
-/*int askNumber(string question, int high, int low = 0);
+// int askNumber(string question, int high, int low = 0);
 char humanPiece();
-char opponent(char piece);
+/* char opponent(char piece);
 void displayBoard(const vector<char>& board);
 char winner(const vector<char>& board);
 bool isLegal(const vector<char>& board, int move);
@@ -43,8 +43,10 @@ int main(int argc, const char * argv[]) {
     vector<char> board(NUM_SQUARES, EMPTY);
     
     instructions();
-    char response = askYesNo("Do you want to go first? ");
+    
+    char response = humanPiece();
     cout << "Response: " << response << endl;
+    
     /*char human = humanPiece();
     char computer = opponent(human);
     char turn = X;
@@ -89,10 +91,14 @@ char askYesNo(string question) {
     char response = 'Q';
     
     while (response != 'y' && response != 'n' ) {
-        cout << question;
+        cout << question << " y or n: ";
         cin >> response;
         response = tolower(response);
     }
     
     return response;
+}
+
+char humanPiece() {
+    return (askYesNo("Do you want to go first?") == 'y') ? X : O;
 }
