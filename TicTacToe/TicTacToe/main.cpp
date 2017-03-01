@@ -7,6 +7,9 @@
 //
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
