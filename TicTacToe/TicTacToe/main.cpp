@@ -11,6 +11,13 @@
 #include <vector>
 #include <algorithm>
 
+// global constants
+const char X = 'X';
+const char O = 'O';
+const char EMPTY = ' ';
+const char TIE = 'T';
+const char NO_ONE = 'N';
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
