@@ -30,8 +30,8 @@ char askYesNo(string question);
 // int askNumber(string question, int high, int low = 0);
 char humanPiece();
 char opponent(char piece);
-/* void displayBoard(const vector<char>& board);
-char winner(const vector<char>& board);
+void displayBoard(const vector<char>& board);
+/* char winner(const vector<char>& board);
 bool isLegal(const vector<char>& board, int move);
 int humanMove(const vector<char>& board, char human);
 int computerMove(vector<char> board, char computer);
@@ -43,16 +43,12 @@ int main(int argc, const char * argv[]) {
     vector<char> board(NUM_SQUARES, EMPTY);
     
     instructions();
-    
-    char response = humanPiece();
-    cout << "Response: " << response << endl;
-    
-    /*char human = humanPiece();
+    char human = humanPiece();
     char computer = opponent(human);
     char turn = X;
     displayBoard(board);
     
-    while (winner(board) == NO_ONE)
+    /*while (winner(board) == NO_ONE)
     {
         if (turn == human)
         {
@@ -105,4 +101,14 @@ char humanPiece() {
 
 char opponent(char piece) {
     return (piece == X) ? O : X;
+}
+
+void displayBoard(const vector<char>& board) {
+
+    cout << "\n\t" << board[0] << " | " << board[1] << " | " << board[2];
+    cout << "\n\t" << "---------";
+    cout << "\n\t" << board[3] << " | " << board[4] << " | " << board[5];
+    cout << "\n\t" << "---------";
+    cout << "\n\t" << board[6] << " | " << board[7] << " | " << board[8];
+    cout << "\n\n";
 }
