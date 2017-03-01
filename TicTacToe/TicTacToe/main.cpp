@@ -26,8 +26,8 @@ const char NO_ONE = 'N';
 
 //function prototypes
 void instructions();
-/*char askYesNo(string question);
-int askNumber(string question, int high, int low = 0);
+char askYesNo(string question);
+/*int askNumber(string question, int high, int low = 0);
 char humanPiece();
 char opponent(char piece);
 void displayBoard(const vector<char>& board);
@@ -43,6 +43,8 @@ int main(int argc, const char * argv[]) {
     vector<char> board(NUM_SQUARES, EMPTY);
     
     instructions();
+    char response = askYesNo("Do you want to go first? ");
+    cout << "Response: " << response << endl;
     /*char human = humanPiece();
     char computer = opponent(human);
     char turn = X;
@@ -81,5 +83,16 @@ void instructions() {
     cout << "\t 6 | 7 | 8 " << endl;
     cout << "\nPrepare yourself, human. The battle is about to begin." << endl;
     
+}
+
+char askYesNo(string question) {
+    char response = 'Q';
     
+    while (response != 'y' && response != 'n' ) {
+        cout << question;
+        cin >> response;
+        response = tolower(response);
+    }
+    
+    return response;
 }
