@@ -35,7 +35,7 @@ char winner(const vector<char>& board);
 bool isLegal(const vector<char>& board, int move);
 int humanMove(const vector<char>& board, char human);
 int computerMove(vector<char> board, char computer);
-// void announceWinner(char winner, char computer, char human);
+void announceWinner(char winner, char computer, char human);
 
 int main(int argc, const char * argv[]) {
     int move;
@@ -53,14 +53,14 @@ int main(int argc, const char * argv[]) {
             move = humanMove(board, human);
             board[move] = human;
         } else {
-            // move = computerMove(board, computer);
-            // board[move] = computer;
+            move = computerMove(board, computer);
+            board[move] = computer;
         }
         displayBoard(board);
         turn = opponent(turn);
     }
     
-    // announceWinner(winner(board), computer, human);
+    announceWinner(winner(board), computer, human);
     
     return 0;
 }
@@ -165,6 +165,82 @@ int askNumber(string question, int high, int low) {
     return number;
 }
 
+// board passed by value as AI will experiement with various moves
+// to find optimum move
 int computerMove(vector<char> board, char computer) {
+    unsigned int move = 0;
+    bool found = false;  // AI's move found (or not)
     
+    //if computer can win on next move, that is the move to make
+    while (!found && move < board.size()) {
+        if (isLegal(board, move)) {
+            //try move
+            board[move] = computer;
+            //test for winner
+            found = winner(board) == computer;   //found changes to true if the move make AI the winner
+            //undo move
+            board[move] = EMPTY;
+        }
+        
+        if (!found) {
+            ++move;  // try the next move
+        }
+    }
+    
+    //otherwise, if opponent can win on next move, that's the move to make
+    if (!found) {
+        move = 0;
+        char human = opponent(computer);
+        
+        while (!found && move < board.size()) {
+            if (isLegal(board, move)) {
+                //try move
+                board[move] = human;
+                //test for winner
+                found = winner(board) == human;
+                //undo move
+                board[move] = EMPTY;
+            }
+            
+            if (!found) {
+                ++move;
+            }
+        }
+    }
+    
+    //otherwise, moving to the best open square is the move to make
+    if (!found) {
+        move = 0;
+        unsigned int i = 0;
+        
+        const int BEST_MOVES[] = {4, 0, 2, 6, 8, 1, 3, 5, 7};
+        //pick best open square
+        while (!found && i <  board.size()) {
+            move = BEST_MOVES[i];
+            if (isLegal(board, move)) {
+                found = true;
+            }
+            
+            ++i;
+        }
+    }
+    
+    cout << "I shall take square number " << move << endl;
+    return move;
+}
+
+void announceWinner(char winner, char computer, char human) {
+    if (winner == computer) {
+        cout << winner << "'s won!\n";
+        cout << "As I predicted, human, I am triumphant once more -- proof\n";
+        cout << "that computers are superior to humans in all regards.\n";
+    } else if (winner == human) {
+        cout << winner << "'s won!\n";
+        cout << "No, no!  It cannot be!  Somehow you tricked me, human.\n";
+        cout << "But never again!  I, the computer, so swear it!\n";
+    } else {
+        cout << "It's a tie.\n";
+        cout << "You were most lucky, human, and somehow managed to tie me.\n";
+        cout << "Celebrate... for this is the best you will ever achieve.\n";
+    }
 }
