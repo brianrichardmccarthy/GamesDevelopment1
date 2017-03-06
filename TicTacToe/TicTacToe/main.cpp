@@ -31,8 +31,8 @@ char askYesNo(string question);
 char humanPiece();
 char opponent(char piece);
 void displayBoard(const vector<char>& board);
-/* char winner(const vector<char>& board);
-bool isLegal(const vector<char>& board, int move);
+char winner(const vector<char>& board);
+/* bool isLegal(const vector<char>& board, int move);
 int humanMove(const vector<char>& board, char human);
 int computerMove(vector<char> board, char computer);
 void announceWinner(char winner, char computer, char human);*/
@@ -48,15 +48,11 @@ int main(int argc, const char * argv[]) {
     char turn = X;
     displayBoard(board);
     
-    /*while (winner(board) == NO_ONE)
-    {
-        if (turn == human)
-        {
+    /*while (winner(board) == NO_ONE) {
+        if (turn == human) {
             move = humanMove(board, human);
             board[move] = human;
-        }
-        else
-        {
+        } else {
             move = computerMove(board, computer);
             board[move] = computer;
         }
@@ -111,4 +107,34 @@ void displayBoard(const vector<char>& board) {
     cout << "\n\t" << "---------";
     cout << "\n\t" << board[6] << " | " << board[7] << " | " << board[8];
     cout << "\n\n";
+}
+
+char winner(const vector<char>& board) {
+    
+    const int TOTAL_ROWS = 8;
+    // all possible winning rows
+    const int WINNING_ROWS[TOTAL_ROWS][3] = { {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8},
+        {0, 3, 6},
+        {1, 4, 7},
+        {2, 5, 8},
+        {0, 4, 8},
+        {2, 4, 6} };
+    
+    // if any winning row has three values that are the same (and not EMPTY),
+    // then we have a winner
+    for (int row = 0; row < TOTAL_ROWS; ++row) {
+        if ( (board[WINNING_ROWS[row][0]] != EMPTY) &&  // without this three empties would meet the winning condition
+            (board[WINNING_ROWS[row][0]] == board[WINNING_ROWS[row][1]]) &&
+            (board[WINNING_ROWS[row][1]] == board[WINNING_ROWS[row][2]]) ) {
+                return board[WINNING_ROWS[row][0]]; // returns 'X' or 'O'
+        }
+    }
+    
+    // since nobody has won, check for a tie (no empty squares left)
+    if (count(board.begin(), board.end(), EMPTY) == 0) return TIE;  // TIE = 'T'
+    
+    // since nobody has won and it isn't a tie, the game ain't over
+    return NO_ONE;  // NO_ONE = 'N'
 }
