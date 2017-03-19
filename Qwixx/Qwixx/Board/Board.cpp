@@ -38,9 +38,9 @@ namespace board {
     
     bool Board::mark(unsigned int index, std::string color) {
         for (unsigned int x = 0; x < rows.size(); x++)
-            if (rows.at(x).getColor() == color) {
+            if (rows.at(x).getColor() == color)
                 return rows.at(x).mark(index);
-            }
+
         return false;
     }
     

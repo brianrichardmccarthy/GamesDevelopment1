@@ -11,7 +11,7 @@ namespace board {
             for (unsigned int x = 0; x < indexes.size(); x++)
                 rowToString += indexes.at(x).toString();
 
-            rowToString += "Total <" + std::to_string(totalMarks) + ">";
+            rowToString += "Total <" + std::to_string(totalMarks) + "> Closed <" + std::to_string(isClosed) + ">";
         }
 
         Row::Row(unsigned int number, int increase, std::string color) {
@@ -23,17 +23,25 @@ namespace board {
 
                 updateRowToString();
             }
+            isClosed = false;
             index = 0;
         }
+
         bool Row::mark(unsigned int index) {
             if (this->index > index) {
                 std::cout << "Invalid choice" << std::endl;
                 return false;
             }
 
+            if (!isClosed) {
+                std::cout << "Sorry, this row is closed" << std::endl;
+                return false;
+            }
+
             this->index = index;
             indexes.at(index).marked = true;
             totalMarks++;
+            isClosed = index == indexes.size() - 1;
             updateRowToString();
             return true;
 

@@ -27,6 +27,7 @@ namespace board {
             unsigned int index;
             unsigned int totalMarks;
             void updateRowToString();
+            bool isClosed;
             
 
             public:
@@ -40,6 +41,9 @@ namespace board {
             inline const std::string& getColor() {
                 return color;
             };
+            inline const bool& isRowClosed() {
+                return isClosed;
+            }
         };
 
     }
