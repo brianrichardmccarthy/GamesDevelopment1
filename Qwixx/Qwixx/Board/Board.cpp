@@ -6,8 +6,10 @@ namespace board {
         for (unsigned int x = 0; x < rows.size(); x++)
             boardToString += rows.at(x).toString() + "\n";
 
+        boardToString += "\n";
+
         for (unsigned int x = 0; x < dices.size(); x++)
-            boardToString += dices.at(x).toString() + "\t";
+            boardToString += dices.at(x).toString() + "\n";
 
         boardToString += "\n";
     }
@@ -43,6 +45,7 @@ namespace board {
     }
     
     void Board::roll() {
+        srand(static_cast<unsigned int>(time(0)));
         for (unsigned int x = 0; x < dices.size(); x++)
             dices.at(x).roll();
 

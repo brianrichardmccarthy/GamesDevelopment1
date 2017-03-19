@@ -1,5 +1,5 @@
-// #ifndef Row
-#pragma once
+#ifndef Row
+// #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ namespace board {
                     Index(unsigned int num, bool marked = false) : num(num), marked(marked) {
                     };
                     inline std::string toString() {
-                    return std::to_string(num) + ": " + ((marked) ? "Y" : "N") + " ";
+                    return "<" + std::to_string(num) + ": " + ((marked) ? "Y" : "N") + "> ";
                 };
             };
             
@@ -45,4 +45,4 @@ namespace board {
     }
 }
 
-// #endif // !Row
+#endif // !Row

@@ -1,5 +1,5 @@
-// #ifndef Board
-#pragma once
+#ifndef Board
+// #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,4 +28,4 @@ namespace board {
     };
 
 }
-// #endif // !Board
+#endif // !Board

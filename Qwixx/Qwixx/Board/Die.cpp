@@ -8,7 +8,6 @@ namespace board {
         }
 
         void Die::roll() {
-            srand(static_cast<unsigned int>(time(0)));
             topSide = (rand()%6)+1;
             updateDieToString();
         }

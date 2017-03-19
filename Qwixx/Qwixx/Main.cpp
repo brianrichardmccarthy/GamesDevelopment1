@@ -1,4 +1,4 @@
-#include "Board\BoardHeader.h"
+#include "Board\Board.h"
 
 int main(void) {
 
