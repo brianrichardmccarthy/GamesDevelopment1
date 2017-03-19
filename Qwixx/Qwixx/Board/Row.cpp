@@ -6,11 +6,12 @@ namespace board {
         void Row::updateRowToString() {
             rowToString = color + ": ";
             // std::vector<Index>::const_iterator iter;
-            // for (iter = inventory.begin(); iter != inventory.end(); ++iter)
-                // rowToString = rowToString + iter->toString();
+            // for (iter = indexes.begin(); iter != indexes.end(); ++iter)
+                 // rowToString += (*iter).toString;
+            for (unsigned int x = 0; x < indexes.size(); x++)
+                rowToString += indexes.at(x).toString();
 
-            for (unsigned int x = 0; x < inventory.size(); x++)
-                rowToString += inventory.at(x).toString();
+            rowToString += "Total <" + std::to_string(totalMarks) + ">";
         }
 
         Row::Row(unsigned int number, int increase, std::string color) {
@@ -18,20 +19,24 @@ namespace board {
             rowToString = "";
             totalMarks = 0;
             for (unsigned int x = 0; number >= 2 && number <= 12; number += increase, x++) {
-                inventory.push_back(Index(number));
+                indexes.push_back(Index(number));
 
                 updateRowToString();
             }
+            index = 0;
         }
         bool Row::mark(unsigned int index) {
-            if (this->index > index)
+            if (this->index > index) {
+                std::cout << "Invalid choice" << std::endl;
                 return false;
+            }
 
             this->index = index;
-            inventory.at(index).marked = true;
+            indexes.at(index).marked = true;
             totalMarks++;
             updateRowToString();
             return true;
+
         }
     }
 }

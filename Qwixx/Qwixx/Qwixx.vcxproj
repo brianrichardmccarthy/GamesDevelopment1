@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Board\Board.cpp" />
     <ClCompile Include="Board\Die.cpp" />
     <ClCompile Include="Board\Row.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board\Board.h" />
     <ClInclude Include="Board\BoardHeader.h" />
     <ClInclude Include="Board\Die.h" />
     <ClInclude Include="Board\Row.h" />

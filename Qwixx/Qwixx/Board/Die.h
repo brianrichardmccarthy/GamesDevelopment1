@@ -1,4 +1,5 @@
-#ifndef Die
+// #ifndef Die
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -29,4 +30,4 @@ namespace board {
     }
 }
 
-#endif // !Die
+// #endif // !Die

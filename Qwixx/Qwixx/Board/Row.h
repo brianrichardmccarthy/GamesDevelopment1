@@ -1,4 +1,5 @@
-#ifndef Row
+// #ifndef Row
+#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,10 +23,11 @@ namespace board {
             
             std::string rowToString;
             std::string color;
-            std::vector<Index> inventory;
+            std::vector<Index> indexes;
             unsigned int index;
             unsigned int totalMarks;
             void updateRowToString();
+            
 
             public:
             Row(unsigned int number, int increase, std::string color);
@@ -35,9 +37,12 @@ namespace board {
                 return rowToString;
             };
             bool mark(unsigned int index);
+            inline const std::string& getColor() {
+                return color;
+            };
         };
 
     }
 }
 
-#endif // !Row
+// #endif // !Row
