@@ -21,12 +21,18 @@
     <ClCompile Include="Board\Die.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Board\Row.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board\BoardHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Board\Die.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Board\Row.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
