@@ -27,7 +27,6 @@ namespace board {
             unsigned int m_totalMarks;
             void updateRowToString();
             bool m_isClosed;
-            
 
             public:
             Row();
@@ -44,6 +43,10 @@ namespace board {
                 return m_isClosed;
             }
             bool mark(unsigned int index);
+            inline void closeRow() {
+                m_isClosed = true;
+                updateRowToString();
+            };
         };
 
     }

@@ -41,7 +41,7 @@ namespace board {
             this->m_index = index;
             m_indexes.at(index).m_marked = true;
             m_totalMarks++;
-            m_isClosed = index == m_indexes.size();
+            m_isClosed = index == (m_indexes.size()-1);
             updateRowToString();
             return true;
 
