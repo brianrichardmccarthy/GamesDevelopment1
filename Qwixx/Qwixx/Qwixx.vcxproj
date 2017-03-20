@@ -28,6 +28,7 @@
     <ClInclude Include="Board\Board.h" />
     <ClInclude Include="Board\Die.h" />
     <ClInclude Include="Board\Row.h" />
+    <ClInclude Include="Player\AbstractPlayer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{01801283-8CA3-4E2C-A25F-D02C3F33C9CD}</ProjectGuid>

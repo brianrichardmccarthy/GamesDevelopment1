@@ -1,6 +1,4 @@
 #ifndef Die
-// #pragma once
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -10,19 +8,19 @@ namespace board {
     namespace die {
         class Die {
             private:
-            std::string dieToString;
-            std::string color;
-            int topSide;
+            std::string m_dieToString;
+            std::string m_color;
+            int m_topSide;
             inline void updateDieToString();
 
             public:
-            Die(std::string color) : color(color) {
+            Die(std::string color) : m_color(color) {
             };
             ~Die() {
             };
             void roll();
             inline const std::string& toString() {
-                return dieToString;
+                return m_dieToString;
             };
 
 

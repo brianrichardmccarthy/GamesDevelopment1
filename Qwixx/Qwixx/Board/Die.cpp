@@ -4,11 +4,11 @@ namespace board {
     namespace die {
 
         void Die::updateDieToString() {
-            dieToString = color + ": " + std::to_string(topSide);
+            m_dieToString = m_color + ": " + std::to_string(m_topSide);
         }
 
         void Die::roll() {
-            topSide = (rand()%6)+1;
+            m_topSide = (rand()%6)+1;
             updateDieToString();
         }
     }

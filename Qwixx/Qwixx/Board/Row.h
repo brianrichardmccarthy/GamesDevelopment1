@@ -1,5 +1,4 @@
 #ifndef Row
-// #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,39 +10,40 @@ namespace board {
         class Row {
             private:
                 struct Index {
-                    unsigned int num;
-                    bool marked;
+                    unsigned int m_num;
+                    bool m_marked;
 
-                    Index(unsigned int num, bool marked = false) : num(num), marked(marked) {
+                    Index(unsigned int num, bool marked = false) : m_num(num), m_marked(marked) {
                     };
                     inline std::string toString() {
-                    return "<" + std::to_string(num) + ": " + ((marked) ? "Y" : "N") + "> ";
+                        return "<" + std::to_string(m_num) + ": " + ((m_marked) ? "Y" : "N") + "> ";
                 };
             };
             
-            std::string rowToString;
-            std::string color;
-            std::vector<Index> indexes;
-            unsigned int index;
-            unsigned int totalMarks;
+            std::string m_rowToString;
+            std::string m_color;
+            std::vector<Index> m_indexes;
+            unsigned int m_index;
+            unsigned int m_totalMarks;
             void updateRowToString();
-            bool isClosed;
+            bool m_isClosed;
             
 
             public:
+            Row();
             Row(unsigned int number, int increase, std::string color);
             ~Row() {
             };
             inline const std::string& toString() {
-                return rowToString;
+                return m_rowToString;
             };
-            bool mark(unsigned int index);
             inline const std::string& getColor() {
-                return color;
+                return m_color;
             };
             inline const bool& isRowClosed() {
-                return isClosed;
+                return m_isClosed;
             }
+            bool mark(unsigned int index);
         };
 
     }

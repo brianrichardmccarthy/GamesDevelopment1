@@ -1,5 +1,4 @@
 #ifndef Board
-// #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,27 +21,25 @@ namespace board {
         bool mark(unsigned int index, std::string color);
         void roll();
         inline const std::string& toString() {
-            return boardToString;
+            return m_boardToString;
         };
 
-        inline const GAMESTATES& getCurrentState() {
-            return gamestates;
+        inline const GAMESTATES& getCurrentState() const {
+            return m_gamestates;
         };
+        void update();
+        void endGame();
+    
 
         private:
-        std::vector<die::Die> dices;
-        std::vector<row::Row> rows;
-        std::string boardToString;
-        unsigned int closedRow;
-        // closedRow, gamestates
+        std::vector<die::Die> m_dices;
+        std::vector<row::Row> m_rows;
+        std::string m_boardToString;
+        unsigned int m_closedRow;
         
-        GAMESTATES gamestates;
+        GAMESTATES m_gamestates;
         
         void updateBoardToString();
-
-
-
-
     };
 
 }

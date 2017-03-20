@@ -8,10 +8,14 @@ enum PLAYERS {
 int main(void) {
 
     board::Board board;
-
+    
     while (board.getCurrentState() == board.PLAYING) {
-
+        board.update();
+        char y;
+        std::cin >> y;
+        if (y == 'Y' || y == 'y')
+            board.endGame();
     }
-    system("PAUSE");
+
     return 0;
 }
