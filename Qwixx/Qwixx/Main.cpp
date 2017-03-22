@@ -1,21 +1,30 @@
-#include "Board\Board.h"
-
-enum PLAYERS {
-    COMPUTER,
-    HUMAN
-};
+#include "Player\AbstractPlayer.h"
+#include "Main.h"
 
 int main(void) {
 
-    board::Board board;
+    instructions();
     
+    // game instances
+    board::Board board;
+    abstractPlayer::AbstractPlayer player("human", &board);
+
+    
+    // Test basic game loop, IO and game state machine
     while (board.getCurrentState() == board.PLAYING) {
-        board.update();
         char y;
         std::cin >> y;
         if (y == 'Y' || y == 'y')
             board.endGame();
+        else {
+            board.update();
+            player.mark();
+        }
     }
 
     return 0;
+}
+
+void instructions() {
+    std::cout << "\tWelcome To Qwixx\n\t----------------\nInstructions Coming Soon!\n" << std::endl;
 }

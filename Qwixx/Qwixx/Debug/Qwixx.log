@@ -1,7 +1,11 @@
-﻿  Board.cpp
+﻿  Die.cpp
+  Board.cpp
+  Generating Code...
+  Compiling...
+  AbstractPlayer.cpp
+  Main.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
-  Main.cpp
   Row.cpp
   Qwixx.vcxproj -> C:\Projects\cpp\GamesDevelopment1\Qwixx\Debug\Qwixx.exe
   Qwixx.vcxproj -> C:\Projects\cpp\GamesDevelopment1\Qwixx\Debug\Qwixx.pdb (Partial PDB)

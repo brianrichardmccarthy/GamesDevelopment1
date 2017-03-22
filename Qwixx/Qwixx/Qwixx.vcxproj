@@ -23,11 +23,13 @@
     <ClCompile Include="Board\Die.cpp" />
     <ClCompile Include="Board\Row.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player\AbstractPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board\Board.h" />
     <ClInclude Include="Board\Die.h" />
     <ClInclude Include="Board\Row.h" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="Player\AbstractPlayer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
