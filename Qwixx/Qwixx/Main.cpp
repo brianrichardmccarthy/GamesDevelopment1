@@ -8,8 +8,9 @@ int main(void) {
     // game instances
     board::Board board;
     abstractPlayer::AbstractPlayer player("human", &board);
+    board.roll();
+    std::cout << board << std::endl;
 
-    
     // Test basic game loop, IO and game state machine
     while (board.getCurrentState() == board.PLAYING) {
         char y;

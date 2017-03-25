@@ -117,6 +117,10 @@ namespace board {
                     Bool - has the marked been placed
             */
             bool mark(unsigned int index, unsigned int lowest);
+
+            /* const std::string& operator<<(Row& row) const {
+                return m_rowToString;
+            } */
         };
 
     }

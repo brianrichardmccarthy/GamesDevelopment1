@@ -96,6 +96,10 @@ namespace board {
         inline const GAMESTATES& getCurrentState() const {
             return m_gamestates;
         };
+
+        friend std::ostream& operator<<(std::ostream& stream, const Board& board) {
+            return stream << board.toString();
+        };
     
 
         private:
